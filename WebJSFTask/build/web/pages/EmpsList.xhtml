@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"    
+      >
+
+    <body>
+
+        <ui:composition template="./../templates/MyTemplate.xhtml">
+
+            <ui:define name="title_page">
+
+                <div align="center">
+                    <h2>Employees Management</h2>
+                    <hr/>
+                </div>
+
+            </ui:define>
+
+            <ui:define name="content_page">
+                <h:commandLink action="UserForm.xhtml" value="Create New User" ></h:commandLink>
+
+
+            </ui:define>
+
+            <ui:define name="view_page">
+
+                <h:dataTable value="#{UsersManagedBean.usersList}" var="user"
+                             styleClass="users-table" style="width: 80%"
+                             headerClass="users-table-header"
+                             rowClasses="users-table-odd-row,users-table-even-row" 
+                             >
+
+                    <h:column>
+                        <f:facet name="header">User Id</f:facet> 
+                            #{user.userId}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">User Name</f:facet> 
+                            #{user.userName}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">User Email</f:facet> 
+                            #{user.userEmail}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Actions</f:facet>
+                        <h:commandButton value="Edit" action="UserForm"/>
+                        &nbsp; &nbsp;
+                        <h:commandButton value="Delete" 
+                                  action="#{UsersManagedBean.deleteUser(user.userId)}"
+                                     onclick="if (!confirm('Really delete this ?')) 
+                                         {return false; } ; return true;"
+                                         />
+                        
+                    </h:column>
+                    
+                    
+
+                </h:dataTable>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
