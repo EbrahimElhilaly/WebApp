@@ -1,5 +1,5 @@
 # JSF Web APPlication
-Application for ordering food online like otlob.
+Application for Company's Employees .
 
 This project the implementation of the web app.
 
