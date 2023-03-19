@@ -23,8 +23,12 @@ public class UsersManagedBean {
   
     private ArrayList<Employee> usersList = new ArrayList();
     private Employee user = new Employee();
-    
-   
+
+    public UsersManagedBean() {
+
+        usersList = UserServices.getAllUsers();
+    }
+
     public ArrayList<Employee> getUsersList() {
         return usersList;
     }
@@ -44,6 +48,24 @@ public class UsersManagedBean {
     public void deleteUser(int userId){
          
          UserServices.deleteUser(userId);
+    }
+
+    public void editUser(int userId){
+
+        UserServices.getUserById(userId);
+    }
+
+    public void saveUser(){
+
+        if(user.getEmployeeId() != 0){
+
+            UserServices.updateUser(user);
+
+        }else {
+
+            UserServices.insertUser(user);
+        }
+        usersList = UserServices.getAllUsers();
     }
     
     
