@@ -6,6 +6,7 @@
 package javaee.web.hr.emps.beans;
 
 import java.util.ArrayList;
+
 import javaee.web.hr.depts.services.UserServices;
 import javaee.web.hr.entity.Employee;
 
@@ -13,14 +14,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 /**
- *
  * @author Administrator
  */
 
 @ManagedBean(name = "UsersManagedBean")
 @RequestScoped
 public class UsersManagedBean {
-  
+
     private ArrayList<Employee> usersList = new ArrayList();
     private Employee user = new Employee();
 
@@ -44,30 +44,34 @@ public class UsersManagedBean {
     public void setUser(Employee user) {
         this.user = user;
     }
-  
-    public void deleteUser(int userId){
-         
-         UserServices.deleteUser(userId);
+
+    public void deleteUser(int userId) {
+
+        UserServices.deleteUser(userId);
     }
 
-    public void editUser(int userId){
+    public void editUser(int userId) {
 
         UserServices.getUserById(userId);
     }
 
-    public void saveUser(){
+    public void saveUser() {
 
-        if(user.getEmployeeId() != 0){
+        if (user.getEmployeeId() != 0) {
 
             UserServices.updateUser(user);
 
-        }else {
+        } else {
 
             UserServices.insertUser(user);
         }
         usersList = UserServices.getAllUsers();
     }
-    
-    
-    
+
+    public void createUser() {
+
+        user= new Employee();
+
+        }
+
 }

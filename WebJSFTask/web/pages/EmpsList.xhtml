@@ -21,7 +21,9 @@
             </ui:define>
 
             <ui:define name="content_page">
-                <h:commandLink action="UserForm.xhtml" value="Create New User" ></h:commandLink>
+                <h:commandLink action="UserForm.xhtml"
+                               actionlistener="#{UsersManagedBean.createUser()"
+                               value="Create New User" ></h:commandLink>
 
 
             </ui:define>
@@ -51,7 +53,9 @@
                     
                     <h:column>
                         <f:facet name="header">Actions</f:facet>
-                        <h:commandButton value="Edit" action="UserForm"/>
+                        <h:commandButton value="Edit" action="UserForm"
+                                         actionlistener="#{UsersManagedBean.editUser()"/>
+
                         &nbsp; &nbsp;
                         <h:commandButton value="Delete" 
                                   action="#{UsersManagedBean.deleteUser(user.userId)}"
