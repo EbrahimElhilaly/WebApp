@@ -47,5 +47,7 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
     <property name="hibernate.connection.username">HR</property>
     <property name="hibernate.connection.password">HR</property>
+    <mapping class="javaee.web.hr.entity.Deparment"></mapping>
+    <mapping class="javaee.web.hr.entity.Employee"></mapping>
     </session-factory>
 </hibernate-configuration>
