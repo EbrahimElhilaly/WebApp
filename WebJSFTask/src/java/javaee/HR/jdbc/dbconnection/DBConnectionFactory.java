@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaee.webstore.jdbc.dbconnection;
+package javaee.HR.jdbc.dbconnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  */
 public class DBConnectionFactory {
 
-    private final static String USER = "ebook";
-    private final static String PASS = "ebook";
+    private final static String USER = "HR";
+    private final static String PASS = "HR";
     private final static String DB_URL = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
    
     

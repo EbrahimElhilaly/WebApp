@@ -13,13 +13,11 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javaee.web.hr.entity.Department;
-import javaee.webstore.hibernate.util.HibernateUtil;
-import javaee.webstore.jdbc.dbconnection.DBConnectionFactory;
+import javaee.HR.hibernate.util.HibernateUtil;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
